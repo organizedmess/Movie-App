@@ -1,0 +1,24 @@
+<div class="nav">
+  <p>WELCOME, {{ CurrUser.username | uppercase }}</p>
+  <button class="btn" (click)="logout()">Logout</button>
+</div>
+
+<button class="Search" routerLink="/search">Search For Movies</button>
+
+<div class="container">
+  <h2 class="disclamer">Best Movies You must watch</h2>
+  <div class="row">
+    <div class="cards" *ngFor="let movie of TopMovies" [@fade]>
+      <div class="card">
+        <img class="card-img-top" src="{{movie.Poster}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-title">{{movie.Title}}</p>
+          <p class="card-title">{{movie.Released}}</p>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+

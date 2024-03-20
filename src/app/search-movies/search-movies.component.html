@@ -1,0 +1,28 @@
+<h2>SEARCH FOR YOUR FAVOURITE MOVIES</h2>
+
+
+<div class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <div>
+          <label for="filter">Search Bar</label>
+          <input type="text" [(ngModel)]="filteredStatus" />
+          <div class="inventory-grid">
+            <div class="movie-card" *ngFor="let movie of movies | filter : filteredStatus; let index = index" [@slide]>
+              <img class="w-full" [src]="movie.image" [alt]="movie.title" />
+              <div class="px-6 py-4">
+                <div class="movie-title">{{ movie.title }}</div>
+              </div>
+              <button class="btn btn-primary" (click)="GotoDetils(index)">
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
